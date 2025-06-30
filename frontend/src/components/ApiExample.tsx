@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Mostrar la URL base en consola para depuración
+console.log('API URL:', process.env.REACT_APP_API_URL);
 
-// Definir la URL base desde la variable de entorno
 const API_URL = process.env.REACT_APP_API_URL || '';
-
 
 const ApiExample: React.FC = () => {
     const [data, setData] = useState<any>(null);
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
-
 
     // Ejemplo de GET
     const handleGet = async () => {
@@ -26,7 +25,6 @@ const ApiExample: React.FC = () => {
             setLoading(false);
         }
     };
-
 
     // Ejemplo de POST
     const handlePost = async () => {
@@ -47,11 +45,10 @@ const ApiExample: React.FC = () => {
         }
     };
 
-
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Ejemplo de Comunicación con API</h1>
-           
+            
             <div className="space-x-4 mb-4">
                 <button
                     onClick={handleGet}
@@ -60,7 +57,7 @@ const ApiExample: React.FC = () => {
                 >
                     Hacer GET
                 </button>
-               
+                
                 <button
                     onClick={handlePost}
                     className="bg-green-500 text-white px-4 py-2 rounded"
@@ -69,7 +66,6 @@ const ApiExample: React.FC = () => {
                     Hacer POST
                 </button>
             </div>
-
 
             {loading && <div>Cargando...</div>}
             {error && <div className="text-red-500">{error}</div>}
@@ -84,6 +80,5 @@ const ApiExample: React.FC = () => {
         </div>
     );
 };
-
 
 export default ApiExample;
