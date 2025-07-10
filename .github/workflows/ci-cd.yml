@@ -44,16 +44,16 @@ jobs:
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: List Docker images
+        run: docker images 
+
       - name: Tag Docker images
         run: |
-          docker tag adesso-project_backend ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
-          docker tag adesso-project_frontend ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest
+          docker tag adesso-project_backend:latest ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
+          docker tag adesso-project_frontend:latest ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest
 
       - name: Push backend image to GHCR
         run: docker push ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
 
       - name: Push frontend image to GHCR
         run: docker push ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest 
-
-      - name: List Docker images
-        run: docker images 
