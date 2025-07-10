@@ -46,11 +46,11 @@ jobs:
 
       - name: Tag Docker images
         run: |
-          docker tag backend-laravel ghcr.io/DanieelJP/Adesso-Erasmus-Project-backend:latest
-          docker tag frontend ghcr.io/DanieelJP/Adesso-Erasmus-Project-frontend:latest
+          docker tag backend-laravel ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
+          docker tag frontend ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest
 
       - name: Push backend image to GHCR
-        run: docker push ghcr.io/DanieelJP/Adesso-Erasmus-Project-backend:latest
+        run: docker push ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
 
       - name: Push frontend image to GHCR
-        run: docker push ghcr.io/DanieelJP/Adesso-Erasmus-Project-frontend:latest 
+        run: docker push ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest 
