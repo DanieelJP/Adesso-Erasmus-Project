@@ -54,3 +54,6 @@ jobs:
 
       - name: Push frontend image to GHCR
         run: docker push ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest 
+
+      - name: List Docker images
+        run: docker images 
