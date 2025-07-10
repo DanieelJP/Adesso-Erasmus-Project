@@ -29,8 +29,11 @@ jobs:
       - name: Run frontend tests
         run: docker compose exec frontend npm test || true
 
-      - name: Build frontend
-        run: docker compose exec frontend npm run build
+      - name: Build frontend (fuera de Docker)
+        run: |
+          cd frontend
+          npm ci
+          npm run build
 
       - name: Upload React build as artifact
         uses: actions/upload-artifact@v4
