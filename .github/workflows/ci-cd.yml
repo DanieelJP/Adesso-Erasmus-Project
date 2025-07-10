@@ -49,8 +49,8 @@ jobs:
 
       - name: Tag Docker images
         run: |
-          docker tag adesso-project_backend:latest ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
-          docker tag adesso-project_frontend:latest ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest
+          docker tag adesso-erasmus-project-backend:latest ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
+          docker tag adesso-erasmus-project-frontend:latest ghcr.io/danieeljp/adesso-erasmus-project-frontend:latest
 
       - name: Push backend image to GHCR
         run: docker push ghcr.io/danieeljp/adesso-erasmus-project-backend:latest
