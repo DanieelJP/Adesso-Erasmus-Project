@@ -29,6 +29,10 @@ jobs:
       - name: Run frontend tests
         run: docker compose exec frontend npm test || true
 
+      - name: Clean node_modules (fix permissions)
+        run: |
+          rm -rf frontend/node_modules
+
       - name: Build frontend (fuera de Docker)
         run: |
           cd frontend
