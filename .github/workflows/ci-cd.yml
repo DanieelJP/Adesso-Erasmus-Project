@@ -18,16 +18,16 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker images
-        run: docker compose -f docker-compose.ci.yml build
+        run: docker compose -f docker-compose.yml build
 
       - name: Levantar servicios
-        run: docker compose -f docker-compose.ci.yml up -d
+        run: docker compose -f docker-compose.yml up -d
 
       - name: Run backend tests
-        run: docker compose -f docker-compose.ci.yml exec backend-laravel php artisan test || true
+        run: docker compose -f docker-compose.yml exec backend-laravel php artisan test || true
 
       - name: Run frontend tests
-        run: docker compose -f docker-compose.ci.yml exec frontend npm test || true
+        run: docker compose -f docker-compose.yml exec frontend npm test || true
 
       - name: Build frontend (fuera de Docker)
         run: |
