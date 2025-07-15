@@ -18,5 +18,12 @@ services:
       - ./frontend:/app
     ports:
       - "3000:3000"
-    command: sh -c "npm install && npm start"
+frontend:
+  build:
+    context: ./frontend
+  volumes:
+    - ./frontend:/app
+  ports:
+    - "3000:3000"
+  command: sh -c "if [ ! -d node_modules ]; then npm install; fi && npm start"
 
